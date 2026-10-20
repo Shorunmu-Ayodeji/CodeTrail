@@ -1,17 +1,23 @@
-import React from 'react'
-
 export default function NavBar() {
   return (
-    <div>
-      <nav className="flex items-center justify-between px-6 py-4 bg-gray-800">
-      {/* Logo */}
-      <h1 className="text-white text-2xl font-bold">w3stix</h1>
-
-      {/* Button */}
-      <button className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition">
-        klick me
-      </button>
-    </nav>
-    </div>
+    <header className="site-header">
+      <a className="brand" href="#top" aria-label="CodeTrail home">
+        <span className="brand-mark" aria-hidden="true">
+          <span className="monogram-c">C</span>
+          <span className="monogram-t">T</span>
+          <span className="monogram-trail" />
+        </span>
+        <span className="brand-name">
+          Code<span className="brand-name-accent">Trail</span><span className="brand-period">.</span>
+        </span>
+      </a>
+      <nav className="main-nav" aria-label="Main navigation">
+        <a href="#roadmap">Roadmap</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+      <a className="header-cta" href="#roadmap">
+        <span>Start learning</span><span className="cta-arrow" aria-hidden="true">↗</span>
+      </a>
+    </header>
   )
 }
