@@ -2,7 +2,8 @@ import React from 'react'
 
 export default function Hero() {
   return (
-    <section className="h-[80vh] flex flex-col items-center justify-center text-center bg-gray-900">
+    <div>
+      <section className="h-[80vh] flex flex-col items-center justify-center text-center bg-gray-900">
       <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
         Welcome to My First React Project
       </h1>
@@ -13,5 +14,6 @@ export default function Hero() {
         Explore Now
       </button>
     </section>
+    </div>
   )
 }
