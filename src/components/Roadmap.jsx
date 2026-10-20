@@ -21,6 +21,7 @@ export default function Roadmap({ completedStages, onToggleStage, onReset }) {
       stage.description,
       ...stage.topics,
       stage.project,
+      ...stage.readyWhen,
       stage.resourceLabel,
     ].join(" ").toLowerCase()
 
@@ -138,7 +139,7 @@ export default function Roadmap({ completedStages, onToggleStage, onReset }) {
                 <p className="stage-description">{stage.description}</p>
                 <details className="stage-details">
                   <summary>
-                    <span>See what you’ll learn</span>
+                    <span>Explore this stage</span>
                     <span className="details-icon" aria-hidden="true">+</span>
                   </summary>
                   <div className="stage-detail-content">
@@ -148,6 +149,14 @@ export default function Roadmap({ completedStages, onToggleStage, onReset }) {
                     <div className="project-prompt">
                       <span className="project-icon" aria-hidden="true">✳</span>
                       <p><strong>Put it into practice</strong>{stage.project}</p>
+                    </div>
+                    <div className="ready-check">
+                      <h4>Ready to move on when…</h4>
+                      <ul>
+                        {stage.readyWhen.map((criterion) => (
+                          <li key={criterion}>{criterion}</li>
+                        ))}
+                      </ul>
                     </div>
                     <a className="resource-link" href={stage.resource} target="_blank" rel="noreferrer">
                       {stage.resourceLabel} <span aria-hidden="true">↗</span>
@@ -183,10 +192,40 @@ export default function Roadmap({ completedStages, onToggleStage, onReset }) {
         )}
       </div>
 
-      <div className="roadmap-footnote" id="how-it-works">
-        <span aria-hidden="true">✳</span>
-        <p><strong>Your pace, your path.</strong> Take as long as you need. Mark each step when you feel ready, and your progress will be saved on this device.</p>
-      </div>
+      <section className="how-section" id="how-it-works" aria-labelledby="how-title">
+        <div className="how-heading">
+          <span className="eyebrow section-eyebrow">HOW CODETRAIL WORKS</span>
+          <h2 id="how-title">Learn it. <span>Build it.</span> Own it.</h2>
+          <p>No deadlines or secret prerequisites. Use the roadmap as a guide, and move forward when you can do the work for yourself.</p>
+        </div>
+        <div className="how-steps">
+          <article className="how-step">
+            <span className="how-step-number">01</span>
+            <div>
+              <h3>Learn the essentials</h3>
+              <p>Open a stage, work through its topics, and use the linked resource when you need a lesson or reference.</p>
+            </div>
+          </article>
+          <article className="how-step">
+            <span className="how-step-number">02</span>
+            <div>
+              <h3>Make something small</h3>
+              <p>Try the project idea using what you just learned. Experiment, look things up, and fix your own mistakes.</p>
+            </div>
+          </article>
+          <article className="how-step">
+            <span className="how-step-number">03</span>
+            <div>
+              <h3>Check, then keep going</h3>
+              <p>Use the “Ready to move on” checklist as a practical guide. When you can do those things, mark the stage complete.</p>
+            </div>
+          </article>
+        </div>
+        <div className="how-footer">
+          <p><strong>Your time, your pace.</strong> Stage durations are rough estimates, not deadlines. Completion is saved in this browser on this device.</p>
+          <a href="#roadmap">Back to the roadmap <span aria-hidden="true">↑</span></a>
+        </div>
+      </section>
     </section>
   )
 }
